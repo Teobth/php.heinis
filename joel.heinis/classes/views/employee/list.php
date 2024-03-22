@@ -1,35 +1,24 @@
-  <div class="bg-body-tertiary p-5 rounded">
+<div class="bg-body-tertiary p-5 rounded">
     <h1>Employee List</h1>
 
-
     <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($employees as $employee): ?>
+            <tr>
+                <th scope="row"><?php echo $employee['EmployeeID']; ?></th>
+                <td><?php echo $employee['FirstName']; ?></td>
+                <td><?php echo $employee['LastName']; ?></td>
+                <td><?php echo $employee['EmailAddress']; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="lierator" content="Hugo 0.118.2">
     <title>Top navbar example · Bootstrap v5.3</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-static/">
@@ -157,30 +157,36 @@
     
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Archiweb</a>
+    <a class="navbar-brand" href="#">Archi Web</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?C=employee&M=list">Employés</a>
+          <a class="nav-link" href="index.php?controller=employee&method=list">Employés</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?C=department">Services</a>
-        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="index.php?controller=service&method=list">Services</a>
+        </li> -->
       </ul>
-      
+      <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
     </div>
   </div>
 </nav>
 
-<main class="container">
-<?php require VIEWS.DS.$ressource.DS.$methode.'.php'; ?>
-</main>
+<?php 
+require_once CLASSES.DS.'Router.php';
+$router = new Router();
+$ressource = $router->processRequest();
+require_once VIEWS.DS.$ressource.DS.$methode.'.php'; ?>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     </body>
